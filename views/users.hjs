@@ -9,16 +9,23 @@
   </head>
   <body>
     <script>
+
     $(document).ready(() => {
       $.ajax({
         type: "GET",
         url: '/users/list',
-        success: function(data) {
-          // This callback function will run once
-          // the ajax call as successfully completed
+        success: (data) =>{
+          const tableBody= $ ('#users_table');
+          data.user.forEach((user))=>{
+            const row = "<tr><td> ${user} </td></tr>";
+            tableBody.append(row);
+          }
         }
       });
     });
+
+
+
     </script>
     <div>
     <div>

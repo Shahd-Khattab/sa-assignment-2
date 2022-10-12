@@ -1,8 +1,11 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-
+const jsonData= require('./fixtures/users.json'); 
+//import users from './fixtures/users.json';
+//assert { type: 'JSON' };
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
 app.use(express.static('public'));
@@ -20,6 +23,24 @@ app.get('/', (req,res) => {
     name: "Dr. Amr Desouky - Assignment #2"
   });
 });
+//console.log(jsonData);
+
+
+app.get('/users/list', (req,res) => {
+  
+  res.render('users',{ jsonData  
+  });
+});
+
+
+
+
+app.get('/users', (req,res) => {
+
+  res.render('users');
+
+});
+
 
 // middleware to catch non-existing routes
 app.use((req, res, next) => {
