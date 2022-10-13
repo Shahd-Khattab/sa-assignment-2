@@ -9,31 +9,25 @@
   </head>
   <body>
     <script>
-
     $(document).ready(() => {
       $.ajax({
         type: "GET",
         url: '/users/list',
-        success: function(data){
-          console.log('[data]', data)
+        success: function(data) {   
           const tableBody= $ ('#users');
-          data.forEach((user,id)=>{
-            const row = 
-            `
-            <tr>
-            <th scope="col">${id+1}</th>
-              <th scope="col">${user.fname}</th>
-              <th scope="col">${user.lname}</th>
-              <th scope="col">${user.handler}</th>
-          </tr> `;
+          data.forEach((user,number) => {
+            const row =
+            `<tr><th> ${number+1}</th>+
+            <th>${user.fname}</th>+
+            <th> ${user.lname}</th>+
+            <th> ${user.handler}</th></tr>`;
             tableBody.append(row);
-          })
+          });
         }
       });
-      });
- 
+    });
 
-
+     
 
     </script>
     <div>
@@ -50,8 +44,8 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
             <th scope="col">Handle</th>
           </tr>
         </thead>

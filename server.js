@@ -14,10 +14,6 @@ app.use(express.static('public'));
  * @return HTML to render /index page
  */
 app.get('/', (req,res) => {
-  // res.render tells the server to return
-  // predefined html in the views directory
-  // @param1 is the name of the view
-  // @param2 data args passed to view for injection  
   res.render('index', {
     title: "Software Design & Architecture",
     name: "Dr. Amr Desouky - Assignment #2"
@@ -35,12 +31,6 @@ app.get('/users/list', (req,res) => {
   
   res.json(users);
 });
-
-
-
-
-
-
 
 // middleware to catch non-existing routes
 app.use((req, res, next) => {
