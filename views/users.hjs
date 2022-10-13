@@ -9,26 +9,32 @@
   </head>
   <body>
     <script>
+
     $(document).ready(() => {
       $.ajax({
         type: "GET",
         url: '/users/list',
-        success: function(data) {
+        success: function(data){
           console.log('[data]', data)
-          const tableBody=$('#users');
-          data.forEach((user,id)=> {
-            const row= `<tr>
-              <th scope="col">${id+1}</th>
+          const tableBody= $ ('#users');
+          data.forEach((user,id)=>{
+            const row = 
+            `
+            <tr>
+            <th scope="col">${id+1}</th>
               <th scope="col">${user.fname}</th>
               <th scope="col">${user.lname}</th>
               <th scope="col">${user.handler}</th>
-            </tr>`;
+          </tr> `;
             tableBody.append(row);
           })
         }
       });
-    });
-          
+      });
+ 
+
+
+
     </script>
     <div>
     <div>
