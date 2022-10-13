@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const jsonData= require('./fixtures/users.json'); 
+const users= require('./fixtures/users.json'); 
 //import users from './fixtures/users.json';
 //assert { type: 'JSON' };
 // view engine setup
@@ -25,21 +25,21 @@ app.get('/', (req,res) => {
 });
 //console.log(jsonData);
 
-
-app.get('/users/list', (req,res) => {
-  
-  res.render('users',{ jsonData  
-  });
-});
-
-
-
-
 app.get('/users', (req,res) => {
 
   res.render('users');
 
 });
+
+app.get('/users/list', (req,res) => {
+  
+  res.json(users);
+});
+
+
+
+
+
 
 
 // middleware to catch non-existing routes
